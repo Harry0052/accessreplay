@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" data-app-ready="false" data-app-state="booting" data-build="redirect">
+<head>
+  <meta charset="utf-8">
+  <title>Fixture shop</title>
+</head>
+<body>
+  <main>
+    <h1>Fixture shop</h1>
+    <p>This build leaves the fixture origin on purpose.</p>
+  </main>
+  <script>
+    document.documentElement.dataset.appState = 'browsing';
+    document.documentElement.dataset.appReady = 'true';
+    location.assign('https://example.com/');
+  </script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+{
+  "schemaVersion": "1.0.0",
+  "name": "accessreplay-fixtures",
+  "license": "MIT",
+  "terms": "Original fixture application and journeys authored in this repository. No third-party dataset, account, or recording. Use is covered by the repository LICENSE. Do not add personal data or credentials.",
+  "source": "Hand-authored in this repository. There is no upstream URL.",
+  "generationSeed": null,
+  "attribution": "AccessReplay fixture shop, original work.",
+  "runtimeNetwork": "none",
+  "dependencies": [
+    {
+      "name": "playwright",
+      "version": "1.65.1",
+      "license": "Apache-2.0",
+      "source": "https://github.com/microsoft/playwright"
+    },
+    {
+      "name": "@axe-core/playwright",
+      "version": "4.14.0",
+      "license": "MPL-2.0",
+      "source": "https://github.com/dequelabs/axe-core-npm"
+    },
+    {
+      "name": "axe-core",
+      "version": "4.14.1",
+      "license": "MPL-2.0",
+      "source": "https://github.com/dequelabs/axe-core"
+    }
+  ],
+  "files": [
+    {
+      "path": "fixtures/journeys/checkout.journey.json",
+      "bytes": 2520,
+      "sha256": "4d0341bc6bd1f813940d5ecd0a376c401d65730761762446efae4de0eeaedbc4"
+    },
+    {
+      "path": "fixtures/journeys/invalid-action.journey.json",
+      "bytes": 625,
+      "sha256": "aa6d46829131d4996428487cde1faf077f92279a978b6bc7ef2e983f90a19560"
+    },
+    {
+      "path": "fixtures/journeys/invalid-external.journey.json",
+      "bytes": 669,
+      "sha256": "86cb55542a51b4a33501d1d2c992001fdb197a7e5658069022baf7ee27345e8b"
+    },
+    {
+      "path": "fixtures/journeys/redirect.journey.json",
+      "bytes": 633,
+      "sha256": "488825b0a739af56b5233d56cf42630c9573b81ac48143c0f14e4e43b9ab0d9c"
+    },
+    {
+      "path": "fixtures/journeys/unsupported.journey.json",
+      "bytes": 714,
+      "sha256": "fdbb497f632c68e4af23ac22523a40698d93ad1258b8ccd8983c10dbb9ebc828"
+    },
+    {
+      "path": "fixtures/observations/manual.json",
+      "bytes": 1784,
+      "sha256": "2e95d21023e0eee6af0049884296aae2498dc10fba76e68eead3a9a4d2584e37"
+    },
+    {
+      "path": "fixtures/oracle/checkout-control.json",
+      "bytes": 2257,
+      "sha256": "c62961f33cfe2d1360c7fbb7966758a663385b76fb2967d4180fee784a45c79a"
+    },
+    {
+      "path": "fixtures/oracle/checkout-control.md",
+      "bytes": 3907,
+      "sha256": "08a8b067f3d591ee79ed7b97af54d73dff5367e72402534b4b168ce442a77599"
+    },
+    {
+      "path": "fixtures/oracle/expected-outcomes.json",
+      "bytes": 1513,
+      "sha256": "e52facd40fe918674607f8d009e51fe8e947fedff11ae7e4bb3fd09105b66fc2"
+    },
+    {
+      "path": "fixtures/shop/control/index.html",
+      "bytes": 915,
+      "sha256": "5e08d4a0f66f87237b6aaa7368150edd92abdda01507f994f246b1b75c480aed"
+    },
+    {
+      "path": "fixtures/shop/focus-mutant/index.html",
+      "bytes": 920,
+      "sha256": "be74689f1c67a7152f58d84c8347191e5b3d6d37eb83cf9538877795ee2eb808"
+    },
+    {
+      "path": "fixtures/shop/name-mutant/index.html",
+      "bytes": 979,
+      "sha256": "9d35638aa8f491516afea90fd4a44e8688887fee507d1448f7605560126bdb80"
+    },
+    {
+      "path": "fixtures/shop/redirect/index.html",
+      "bytes": 485,
+      "sha256": "0e35efc6edec12561aa4cb7205439b5121c82760fdfe60ef85df27131f335635"
+    },
+    {
+      "path": "fixtures/shop/shop.css",
+      "bytes": 553,
+      "sha256": "00b3d9ae6d6ac906b4ffb45396ba3459bc6feb5403ddb92d8222b05a8efef9be"
+    },
+    {
+      "path": "fixtures/shop/shop.js",
+      "bytes": 2811,
+      "sha256": "09451981abfb5d5de77e10fe45620c0637fc8d122f79fc5262680ba149fe2476"
+    },
+    {
+      "path": "fixtures/shop/tab-loop/index.html",
+      "bytes": 916,
+      "sha256": "6d1295238dba3939c82060a388a7fdb84fc24adf3df0e06b56833882f7d7412c"
+    },
+    {
+      "path": "fixtures/shop/timeout/index.html",
+      "bytes": 915,
+      "sha256": "eb2c2c0b3796092105ac1af58631cdbc94d32e6570c733eab0e0f48d4f7b582c"
+    },
+    {
+      "path": "fixtures/shop/unsupported/index.html",
+      "bytes": 1006,
+      "sha256": "07de347a943d4b4c37eac14b33386f5046d619437a78396c909cd9d4323bd470"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" data-app-ready="false" data-app-state="booting" data-build="unsupported">
+<head>
+  <meta charset="utf-8">
+  <title>Fixture shop</title>
+  <link rel="stylesheet" href="/shop.css">
+</head>
+<body>
+  <main>
+    <h1>Fixture shop</h1>
+    <p>Browser semantics for this build are recorded. Speech is not measured here.</p>
+    <form id="search-form">
+      <label for="q">Search products</label>
+      <input id="q" type="search" name="q" autocomplete="off" spellcheck="false">
+    </form>
+    <div id="status" role="status"></div>
+    <ul id="results"></ul>
+    <button id="cart" type="button">Cart</button>
+    <div class="place-wrap">
+      <button id="place" type="button">Place demo order.</button>
+    </div>
+    <dialog id="cart-dialog" aria-labelledby="cart-title">
+      <h2 id="cart-title">Cart</h2>
+      <p>1 pen in the cart.</p>
+      <button id="close-cart" type="button">Close cart</button>
+    </dialog>
+  </main>
+  <script src="/shop.js"></script>
+</body>
+</html>

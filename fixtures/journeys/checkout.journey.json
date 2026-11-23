@@ -1,0 +1,107 @@
+{
+  "schemaVersion": "1.0.0",
+  "fixtureLabel": "valid-checkout",
+  "id": "shop-checkout",
+  "title": "Search the fixture shop, open the cart, and reach demo checkout",
+  "limits": {
+    "maxSteps": 12,
+    "stepTimeoutMs": 2000,
+    "readyTimeoutMs": 1500,
+    "maxInputChars": 32,
+    "maxTabsToTarget": 8
+  },
+  "ready": {
+    "attribute": "data-app-ready",
+    "equals": "true"
+  },
+  "steps": [
+    {
+      "id": "focus-search",
+      "action": { "type": "tab" },
+      "expect": {
+        "role": "searchbox",
+        "name": "Search products",
+        "focusId": "q",
+        "liveRegion": "",
+        "appState": "browsing"
+      }
+    },
+    {
+      "id": "type-query",
+      "action": { "type": "type", "text": "pen" },
+      "expect": {
+        "role": "searchbox",
+        "name": "Search products",
+        "focusId": "q",
+        "liveRegion": "",
+        "appState": "browsing"
+      }
+    },
+    {
+      "id": "submit-search",
+      "action": { "type": "enter" },
+      "expect": {
+        "role": "searchbox",
+        "name": "Search products",
+        "focusId": "q",
+        "liveRegion": "1 result for pen.",
+        "appState": "results"
+      }
+    },
+    {
+      "id": "focus-add",
+      "action": { "type": "tab" },
+      "expect": {
+        "role": "button",
+        "name": "Add pen",
+        "focusId": "add-pen",
+        "liveRegion": "1 result for pen.",
+        "appState": "results"
+      }
+    },
+    {
+      "id": "open-cart",
+      "action": { "type": "enter" },
+      "expect": {
+        "role": "button",
+        "name": "Close cart",
+        "focusId": "close-cart",
+        "liveRegion": "Pen added.",
+        "appState": "cart-open"
+      }
+    },
+    {
+      "id": "escape-cart",
+      "action": { "type": "escape" },
+      "expect": {
+        "role": "button",
+        "name": "Add pen",
+        "focusId": "add-pen",
+        "liveRegion": "Pen added.",
+        "appState": "browsing"
+      }
+    },
+    {
+      "id": "reach-checkout",
+      "action": { "type": "tab", "untilFocusId": "place", "maxTabs": 8 },
+      "expect": {
+        "role": "button",
+        "name": "Place demo order.",
+        "focusId": "place",
+        "liveRegion": "Pen added.",
+        "appState": "browsing"
+      }
+    },
+    {
+      "id": "submit-order",
+      "action": { "type": "enter" },
+      "expect": {
+        "role": "button",
+        "name": "Place demo order.",
+        "focusId": "place",
+        "liveRegion": "Demo order recorded.",
+        "appState": "submitted"
+      }
+    }
+  ]
+}

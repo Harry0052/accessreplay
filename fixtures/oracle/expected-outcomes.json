@@ -1,0 +1,53 @@
+{
+  "method": "Hand classification of each seeded build against checkout-control.md. Observed names and focus ids are predictions from the fixture source, not from a browser log.",
+  "builds": {
+    "control": {
+      "journeyId": "shop-checkout",
+      "status": "pass",
+      "category": null,
+      "firstFailingStep": null
+    },
+    "name-mutant": {
+      "journeyId": "shop-checkout",
+      "status": "fail",
+      "category": "evaluated_regression",
+      "firstFailingStep": "reach-checkout",
+      "field": "name",
+      "expected": "Place demo order.",
+      "observed": ""
+    },
+    "focus-mutant": {
+      "journeyId": "shop-checkout",
+      "status": "fail",
+      "category": "evaluated_regression",
+      "firstFailingStep": "escape-cart",
+      "field": "focusId",
+      "expected": "add-pen",
+      "observed": "body"
+    },
+    "tab-loop": {
+      "journeyId": "shop-checkout",
+      "status": "fail",
+      "category": "tab_limit",
+      "firstFailingStep": "reach-checkout"
+    },
+    "timeout": {
+      "journeyId": "shop-checkout",
+      "status": "timeout",
+      "category": "application_timeout",
+      "firstFailingStep": null
+    },
+    "unsupported": {
+      "journeyId": "unsupported-observation",
+      "status": "unsupported",
+      "category": "unsupported_observation",
+      "firstFailingStep": "focus-search"
+    },
+    "redirect": {
+      "journeyId": "reject-redirect",
+      "status": "rejected",
+      "category": "wrong_origin",
+      "firstFailingStep": null
+    }
+  }
+}

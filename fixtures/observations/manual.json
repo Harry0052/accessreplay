@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "1.0.0",
+  "screenReader": "",
+  "operatingSystem": "",
+  "version": "",
+  "steps": [
+    {
+      "stepId": "focus-search",
+      "expectedAnnouncement": "Verify whether focus on the search box is announced as Search products.",
+      "observedAnnouncement": "",
+      "state": "unreviewed"
+    },
+    {
+      "stepId": "type-query",
+      "expectedAnnouncement": "Verify whether the typed synthetic word pen is announced in the search box.",
+      "observedAnnouncement": "",
+      "state": "unreviewed"
+    },
+    {
+      "stepId": "submit-search",
+      "expectedAnnouncement": "Verify whether the status 1 result for pen. is announced.",
+      "observedAnnouncement": "",
+      "state": "unreviewed"
+    },
+    {
+      "stepId": "focus-add",
+      "expectedAnnouncement": "Verify whether the Add pen button is announced.",
+      "observedAnnouncement": "",
+      "state": "unreviewed"
+    },
+    {
+      "stepId": "open-cart",
+      "expectedAnnouncement": "Verify whether the cart dialog opens and focus is announced on Close cart.",
+      "observedAnnouncement": "",
+      "state": "unreviewed"
+    },
+    {
+      "stepId": "escape-cart",
+      "expectedAnnouncement": "Verify whether Escape returns the reader to Add pen, the button that opened the cart.",
+      "observedAnnouncement": "",
+      "state": "unreviewed"
+    },
+    {
+      "stepId": "reach-checkout",
+      "expectedAnnouncement": "Verify whether the checkout control is announced as Place demo order.",
+      "observedAnnouncement": "",
+      "state": "unreviewed"
+    },
+    {
+      "stepId": "submit-order",
+      "expectedAnnouncement": "Verify whether the status Demo order recorded. is announced after Enter.",
+      "observedAnnouncement": "",
+      "state": "unreviewed"
+    }
+  ]
+}
