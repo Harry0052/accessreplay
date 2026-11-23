@@ -12,7 +12,7 @@
     "accessreplay": "cli.mjs"
   },
   "scripts": {
-    "test": "node --test",
+    "test": "node --test --test-concurrency=1",
     "validate:fixture": "node cli.mjs validate fixtures/journeys/checkout.journey.json",
     "verify:manifest": "node cli.mjs verify-manifest"
   },

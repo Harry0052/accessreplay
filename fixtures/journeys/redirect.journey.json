@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0.0",
+  "fixtureLabel": "valid-redirect-probe",
+  "id": "reject-redirect",
+  "title": "A page that leaves the fixture origin",
+  "limits": {
+    "maxSteps": 4,
+    "stepTimeoutMs": 2000,
+    "readyTimeoutMs": 1500,
+    "maxInputChars": 32,
+    "maxTabsToTarget": 4
+  },
+  "ready": {
+    "attribute": "data-app-ready",
+    "equals": "true"
+  },
+  "steps": [
+    {
+      "id": "focus-search",
+      "action": { "type": "tab" },
+      "expect": {
+        "role": "searchbox",
+        "name": "Search products",
+        "focusId": "q",
+        "liveRegion": "",
+        "appState": "browsing"
+      }
+    }
+  ]
+}

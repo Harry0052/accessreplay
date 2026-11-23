@@ -26,14 +26,39 @@
 - **Open issues:** The browser runner is not part of this phase. Playwright's Chromium was not downloaded yet. Landmark noise from axe is still only a documented constraint.
 - **Next phase:** P03
 
+## P03 — Build the working core
+
+- **Phase and status:** P03 PASS
+- **Files changed:** `src/serve.mjs`, `src/observe.mjs`, `src/run.mjs`, `src/report.mjs`, `cli.mjs` (`run`), `test/journey.test.mjs`, `fixtures/shop/redirect/index.html`, `fixtures/journeys/redirect.journey.json`, `fixtures/oracle/expected-outcomes.json`, `fixtures/manifest.json`
+- **Commands and results:**
+  - `npx playwright install --with-deps chromium` installed Chrome for Testing 159.0.8154.6 (Playwright chromium v1255).
+  - `node --test --test-concurrency=1 test/journey.test.mjs` passed. Control runs produced equal normalized traces matching `fixtures/oracle/checkout-control.json` with different run ids. `name-mutant` failed at `reach-checkout` with observed name `""` on `#place`. `focus-mutant` failed at `escape-cart` with observed focus `#body` and the message named expected `#add-pen` ("Add pen"). `tab-loop` returned `tab_limit`. `timeout` returned `application_timeout` with no checkpoints. `unsupported` returned `unsupported_observation` and was not scored as a regression. `redirect` returned `wrong_origin` for `example.com` before any checkpoint.
+  - `npm test` later in P04: 16 passed, including `node cli.mjs run` exit 0 for control and exit 1 for the name and focus mutants.
+- **Artifact paths:** per-build JSON from `node cli.mjs run --journey fixtures/journeys/checkout.journey.json --build <id> --out <dir>`. The normalized trace is the `normalizedTrace` array.
+- **Open issues:** Manual speech is intentionally unscored. axe rule ids are stored on checkpoints and do not affect status.
+- **Next phase:** P04
+
+## P04 — Ship the user workflow and reports
+
+- **Phase and status:** P04 PASS
+- **Files changed:** `src/demo.mjs`, `src/html-report.mjs`, `src/keyboard.mjs`, `cli.mjs` (`demo`), `fixtures/observations/manual.json`, `test/demo.test.mjs`, `test/html-report.test.mjs`, `README.md`, `fixtures/manifest.json`
+- **Commands and results:**
+  - `npm test`: 16 passed, 0 failed, about 32.5 seconds (Node.js v22.23.4).
+  - `node cli.mjs demo --out <temp>` exit 0. Stdout JSON `ok: true`, manual state `unreviewed`. Stderr includes the keyboard sequence (`Type "pen"`) and the first divergences for `escape-cart` and `reach-checkout`.
+  - HTML export contains `unreviewed`, `fixtures/journeys/checkout.journey.json`, and `fixtures/shop/name-mutant/index.html`. `name-mutant.json` records observed name `""` on focus `#place`.
+  - `node cli.mjs run` on `fixtures/journeys/invalid-action.journey.json` exit 2 in under 5 seconds. Stderr lists the approved actions and says the journey was not started.
+- **Artifact paths:** `<out>/summary.html`, `<out>/summary.json`, `<out>/<build>.json`
+- **Open issues:** The checked-in manual sheet has empty reader, OS, and version fields, so every row stays unreviewed. That is the shipped state.
+- **Next phase:** P05
+
 ## Status index
 
 | Phase | Status |
 | --- | --- |
 | P01 | PASS |
 | P02 | PASS |
-| P03 | not started |
-| P04 | not started |
+| P03 | PASS |
+| P04 | PASS |
 | P05 | not started |
 | P06 | not started |
 | P07 | not started |

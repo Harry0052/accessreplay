@@ -42,6 +42,12 @@
       "status": "unsupported",
       "category": "unsupported_observation",
       "firstFailingStep": "focus-search"
+    },
+    "redirect": {
+      "journeyId": "reject-redirect",
+      "status": "rejected",
+      "category": "wrong_origin",
+      "firstFailingStep": null
     }
   }
 }

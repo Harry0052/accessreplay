@@ -44,9 +44,19 @@
       "sha256": "86cb55542a51b4a33501d1d2c992001fdb197a7e5658069022baf7ee27345e8b"
     },
     {
+      "path": "fixtures/journeys/redirect.journey.json",
+      "bytes": 633,
+      "sha256": "488825b0a739af56b5233d56cf42630c9573b81ac48143c0f14e4e43b9ab0d9c"
+    },
+    {
       "path": "fixtures/journeys/unsupported.journey.json",
       "bytes": 714,
       "sha256": "fdbb497f632c68e4af23ac22523a40698d93ad1258b8ccd8983c10dbb9ebc828"
+    },
+    {
+      "path": "fixtures/observations/manual.json",
+      "bytes": 1784,
+      "sha256": "2e95d21023e0eee6af0049884296aae2498dc10fba76e68eead3a9a4d2584e37"
     },
     {
       "path": "fixtures/oracle/checkout-control.json",
@@ -60,8 +70,8 @@
     },
     {
       "path": "fixtures/oracle/expected-outcomes.json",
-      "bytes": 1357,
-      "sha256": "f87af37c3037fb9ae2dc8555610eae81959a9b8600207bc49bbd0be1fb184a21"
+      "bytes": 1513,
+      "sha256": "e52facd40fe918674607f8d009e51fe8e947fedff11ae7e4bb3fd09105b66fc2"
     },
     {
       "path": "fixtures/shop/control/index.html",
@@ -77,6 +87,11 @@
       "path": "fixtures/shop/name-mutant/index.html",
       "bytes": 979,
       "sha256": "9d35638aa8f491516afea90fd4a44e8688887fee507d1448f7605560126bdb80"
+    },
+    {
+      "path": "fixtures/shop/redirect/index.html",
+      "bytes": 485,
+      "sha256": "0e35efc6edec12561aa4cb7205439b5121c82760fdfe60ef85df27131f335635"
     },
     {
       "path": "fixtures/shop/shop.css",
