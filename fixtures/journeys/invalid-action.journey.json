@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0.0",
+  "fixtureLabel": "invalid-unapproved-action",
+  "id": "bad-click",
+  "title": "A click is not an approved journey action",
+  "limits": {
+    "maxSteps": 4,
+    "stepTimeoutMs": 1000,
+    "readyTimeoutMs": 1000,
+    "maxInputChars": 32,
+    "maxTabsToTarget": 4
+  },
+  "ready": {
+    "attribute": "data-app-ready",
+    "equals": "true"
+  },
+  "steps": [
+    {
+      "id": "click-cart",
+      "action": { "type": "click" },
+      "expect": {
+        "role": "button",
+        "name": "Cart",
+        "focusId": "cart",
+        "liveRegion": "",
+        "appState": "browsing"
+      }
+    }
+  ]
+}

@@ -12,12 +12,26 @@
 - **Open issues:** FastPass and Guidepup were not executed (extension and real screen reader are absent here). The probe used system Chrome, not Playwright's bundled Chromium. `element.focus()` on `document.body` during dialog close did not stick; blur after close did. Landmark axe findings must not decide the journey verdict.
 - **Next phase:** P02
 
+## P02 — Create the repository and data contracts
+
+- **Phase and status:** P02 PASS
+- **Files changed:** `package.json`, `package-lock.json`, `.gitignore`, `README.md`, `cli.mjs`, `src/bounds.mjs`, `src/errors.mjs`, `src/parse.mjs`, `src/normalize.mjs`, `src/manifest.mjs`, `docs/schema.md`, `fixtures/**`, `test/parse.test.mjs`, `test/normalize.test.mjs`, `test/cli.test.mjs`
+- **Commands and results:**
+  - `PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1 npm install` added the pinned lockfile (`playwright@1.65.1`, `@axe-core/playwright@4.14.0`).
+  - `npm test`: 11 passed, 0 failed (Node.js v22.23.4).
+  - `node cli.mjs validate fixtures/journeys/checkout.journey.json` exit 0. Stdout: `{"ok":true,"journeyId":"shop-checkout","fixtureLabel":"valid-checkout","steps":8,"schemaVersion":"1.0.0"}`.
+  - `node cli.mjs validate fixtures/journeys/invalid-action.journey.json` exit 2. Category `unapproved_action`. Stderr names the approved actions and says the journey was not started.
+  - `node cli.mjs verify-manifest` exit 0. 15 fixture files, license MIT.
+- **Artifact paths:** `fixtures/journeys/checkout.journey.json`, `fixtures/journeys/invalid-action.journey.json`, `fixtures/oracle/checkout-control.md`, `fixtures/oracle/checkout-control.json`, `fixtures/manifest.json`, `docs/schema.md`
+- **Open issues:** The browser runner is not part of this phase. Playwright's Chromium was not downloaded yet. Landmark noise from axe is still only a documented constraint.
+- **Next phase:** P03
+
 ## Status index
 
 | Phase | Status |
 | --- | --- |
 | P01 | PASS |
-| P02 | not started |
+| P02 | PASS |
 | P03 | not started |
 | P04 | not started |
 | P05 | not started |

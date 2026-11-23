@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0.0",
+  "fixtureLabel": "invalid-external-navigation",
+  "id": "bad-goto",
+  "title": "An external URL is rejected before a browser starts",
+  "limits": {
+    "maxSteps": 4,
+    "stepTimeoutMs": 1000,
+    "readyTimeoutMs": 1000,
+    "maxInputChars": 32,
+    "maxTabsToTarget": 4
+  },
+  "ready": {
+    "attribute": "data-app-ready",
+    "equals": "true"
+  },
+  "steps": [
+    {
+      "id": "goto-away",
+      "action": { "type": "goto", "url": "https://example.com" },
+      "expect": {
+        "role": "document",
+        "name": "Example",
+        "focusId": "body",
+        "liveRegion": "",
+        "appState": "browsing"
+      }
+    }
+  ]
+}

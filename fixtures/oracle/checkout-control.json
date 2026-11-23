@@ -1,0 +1,85 @@
+{
+  "method": "Hand-traced tab order of fixtures/shop/control after shop.js sets data-app-ready. Roles are the ARIA roles of the focused controls. Names are the visible label or button text, which match the accessible name on this build. Live region text is the status element after each action. No browser was used to write this file.",
+  "trace": [
+    {
+      "stepId": "focus-search",
+      "action": "tab",
+      "role": "searchbox",
+      "name": "Search products",
+      "focusId": "q",
+      "liveRegion": "",
+      "appState": "browsing",
+      "result": "pass"
+    },
+    {
+      "stepId": "type-query",
+      "action": "type",
+      "role": "searchbox",
+      "name": "Search products",
+      "focusId": "q",
+      "liveRegion": "",
+      "appState": "browsing",
+      "result": "pass"
+    },
+    {
+      "stepId": "submit-search",
+      "action": "enter",
+      "role": "searchbox",
+      "name": "Search products",
+      "focusId": "q",
+      "liveRegion": "1 result for pen.",
+      "appState": "results",
+      "result": "pass"
+    },
+    {
+      "stepId": "focus-add",
+      "action": "tab",
+      "role": "button",
+      "name": "Add pen",
+      "focusId": "add-pen",
+      "liveRegion": "1 result for pen.",
+      "appState": "results",
+      "result": "pass"
+    },
+    {
+      "stepId": "open-cart",
+      "action": "enter",
+      "role": "button",
+      "name": "Close cart",
+      "focusId": "close-cart",
+      "liveRegion": "Pen added.",
+      "appState": "cart-open",
+      "result": "pass"
+    },
+    {
+      "stepId": "escape-cart",
+      "action": "escape",
+      "role": "button",
+      "name": "Add pen",
+      "focusId": "add-pen",
+      "liveRegion": "Pen added.",
+      "appState": "browsing",
+      "result": "pass"
+    },
+    {
+      "stepId": "reach-checkout",
+      "action": "tab",
+      "role": "button",
+      "name": "Place demo order.",
+      "focusId": "place",
+      "liveRegion": "Pen added.",
+      "appState": "browsing",
+      "result": "pass"
+    },
+    {
+      "stepId": "submit-order",
+      "action": "enter",
+      "role": "button",
+      "name": "Place demo order.",
+      "focusId": "place",
+      "liveRegion": "Demo order recorded.",
+      "appState": "submitted",
+      "result": "pass"
+    }
+  ]
+}
