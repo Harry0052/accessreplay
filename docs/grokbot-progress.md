@@ -77,6 +77,20 @@
 - **Open issues:** Hosted CI is verified in P07. The release is the git tree, not an npm tarball.
 - **Next phase:** P07
 
+## P07 — Publish and verify on GitHub
+
+- **Phase and status:** P07 PASS
+- **Files changed:** `docs/grokbot-progress.md` (this record). The released tree is commit `378b76149cd8c73ed40ef93466b8c7d25fa86fb1`, tag `v0.1.0`.
+- **Commands and results:**
+  - Destination `https://github.com/Harry0052/accessreplay` is public, default branch `main`, license SPDX `MIT`. The push remote is that repository. `gh api user` is not available to this integration token (HTTP 403); the repository metadata matches the authorized owner and name.
+  - Pull request: https://github.com/Harry0052/accessreplay/pull/1
+  - GitHub Actions run https://github.com/Harry0052/accessreplay/actions/runs/45118121248 on `378b76149cd8c73ed40ef93466b8c7d25fa86fb1` completed with conclusion `success`. Checkout, `npm ci`, Chromium install, syntax check, test, fixture demo, and artifact upload all succeeded. Not merged.
+  - Annotated tag `v0.1.0` points at that commit (tag object `a438d73b1cdde77cebf32aeabd14354d32b75e87`).
+  - `git clone --branch v0.1.0 https://github.com/Harry0052/accessreplay.git` checked out `378b76149cd8c73ed40ef93466b8c7d25fa86fb1`. `npm ci`, `npx playwright install chromium`, and `node cli.mjs demo` exited 0. The summary matched the hand oracle, and the manual sheet was `unreviewed`.
+- **Artifact paths:** git tag `v0.1.0` at https://github.com/Harry0052/accessreplay/tree/v0.1.0. There is no package tarball and no GitHub Release object. CI uploaded the demo report as artifact `demo-report` on the run above.
+- **Open issues:** The owner merges the pull request. Screen-reader observations remain unreviewed until a person records a reader, operating system, and version.
+- **Next phase:** none
+
 ## Status index
 
 | Phase | Status |
@@ -87,4 +101,4 @@
 | P04 | PASS |
 | P05 | PASS |
 | P06 | PASS |
-| P07 | not started |
+| P07 | PASS |
