@@ -1,0 +1,558 @@
+{
+  "accessDate": "2026-11-23",
+  "input": "fixture.html keyboard journey: Tab, type pen, Enter, Tab, Enter, Escape, Tab up to 8",
+  "expectedArtifact": "ordered checkpoints of step, focus id/role/name, and status text; axe rule ids separate",
+  "acceptanceMetric": "identical control traces; first semantic divergence identifies the seeded fault; zero control failures",
+  "playwright": "1.65.1",
+  "axePlaywright": "4.14.0",
+  "chromeChannel": "chrome",
+  "controlTracesMatch": true,
+  "controlReachedCheckout": true,
+  "nameFirstDivergence": {
+    "index": 7,
+    "step": "tab-after-1",
+    "left": {
+      "step": "tab-after-1",
+      "focus": {
+        "id": "place",
+        "role": "button",
+        "name": "Place demo order."
+      },
+      "status": "Pen added."
+    },
+    "right": {
+      "step": "tab-after-1",
+      "focus": {
+        "id": "place",
+        "role": "button",
+        "name": ""
+      },
+      "status": "Pen added."
+    }
+  },
+  "focusFirstDivergence": {
+    "index": 6,
+    "step": "escape",
+    "left": {
+      "step": "escape",
+      "focus": {
+        "id": "cart",
+        "role": "button",
+        "name": "Cart"
+      },
+      "status": "Pen added."
+    },
+    "right": {
+      "step": "escape",
+      "focus": {
+        "id": "body",
+        "role": "document",
+        "name": ""
+      },
+      "status": "Pen added."
+    }
+  },
+  "loopFirstDivergence": {
+    "index": 7,
+    "step": "tab-after-1",
+    "left": {
+      "step": "tab-after-1",
+      "focus": {
+        "id": "place",
+        "role": "button",
+        "name": "Place demo order."
+      },
+      "status": "Pen added."
+    },
+    "right": {
+      "step": "tab-after-1",
+      "focus": {
+        "id": "trap-a",
+        "role": "button",
+        "name": "Offer A"
+      },
+      "status": "Pen added."
+    }
+  },
+  "loopReachedCheckout": false,
+  "axe": {
+    "control": [
+      "landmark-one-main",
+      "region"
+    ],
+    "name": [
+      "button-name",
+      "landmark-one-main",
+      "region"
+    ],
+    "focus": [
+      "landmark-one-main",
+      "region"
+    ],
+    "loop": [
+      "landmark-one-main",
+      "region"
+    ]
+  },
+  "runs": {
+    "controlA": {
+      "elapsedMs": 502,
+      "trace": [
+        {
+          "step": "load",
+          "focus": {
+            "id": "body",
+            "role": "document",
+            "name": ""
+          },
+          "status": ""
+        },
+        {
+          "step": "tab-search",
+          "focus": {
+            "id": "q",
+            "role": "searchbox",
+            "name": "Search products"
+          },
+          "status": ""
+        },
+        {
+          "step": "type-pen",
+          "focus": {
+            "id": "q",
+            "role": "searchbox",
+            "name": "Search products"
+          },
+          "status": ""
+        },
+        {
+          "step": "search",
+          "focus": {
+            "id": "q",
+            "role": "searchbox",
+            "name": "Search products"
+          },
+          "status": "1 result for pen."
+        },
+        {
+          "step": "tab-add",
+          "focus": {
+            "id": "add-pen",
+            "role": "button",
+            "name": "Add pen"
+          },
+          "status": "1 result for pen."
+        },
+        {
+          "step": "open-cart",
+          "focus": {
+            "id": "close",
+            "role": "button",
+            "name": "Close cart"
+          },
+          "status": "Pen added."
+        },
+        {
+          "step": "escape",
+          "focus": {
+            "id": "cart",
+            "role": "button",
+            "name": "Cart"
+          },
+          "status": "Pen added."
+        },
+        {
+          "step": "tab-after-1",
+          "focus": {
+            "id": "place",
+            "role": "button",
+            "name": "Place demo order."
+          },
+          "status": "Pen added."
+        }
+      ]
+    },
+    "controlB": {
+      "elapsedMs": 482,
+      "trace": [
+        {
+          "step": "load",
+          "focus": {
+            "id": "body",
+            "role": "document",
+            "name": ""
+          },
+          "status": ""
+        },
+        {
+          "step": "tab-search",
+          "focus": {
+            "id": "q",
+            "role": "searchbox",
+            "name": "Search products"
+          },
+          "status": ""
+        },
+        {
+          "step": "type-pen",
+          "focus": {
+            "id": "q",
+            "role": "searchbox",
+            "name": "Search products"
+          },
+          "status": ""
+        },
+        {
+          "step": "search",
+          "focus": {
+            "id": "q",
+            "role": "searchbox",
+            "name": "Search products"
+          },
+          "status": "1 result for pen."
+        },
+        {
+          "step": "tab-add",
+          "focus": {
+            "id": "add-pen",
+            "role": "button",
+            "name": "Add pen"
+          },
+          "status": "1 result for pen."
+        },
+        {
+          "step": "open-cart",
+          "focus": {
+            "id": "close",
+            "role": "button",
+            "name": "Close cart"
+          },
+          "status": "Pen added."
+        },
+        {
+          "step": "escape",
+          "focus": {
+            "id": "cart",
+            "role": "button",
+            "name": "Cart"
+          },
+          "status": "Pen added."
+        },
+        {
+          "step": "tab-after-1",
+          "focus": {
+            "id": "place",
+            "role": "button",
+            "name": "Place demo order."
+          },
+          "status": "Pen added."
+        }
+      ]
+    },
+    "name": {
+      "elapsedMs": 445,
+      "reachedCheckout": true,
+      "trace": [
+        {
+          "step": "load",
+          "focus": {
+            "id": "body",
+            "role": "document",
+            "name": ""
+          },
+          "status": ""
+        },
+        {
+          "step": "tab-search",
+          "focus": {
+            "id": "q",
+            "role": "searchbox",
+            "name": "Search products"
+          },
+          "status": ""
+        },
+        {
+          "step": "type-pen",
+          "focus": {
+            "id": "q",
+            "role": "searchbox",
+            "name": "Search products"
+          },
+          "status": ""
+        },
+        {
+          "step": "search",
+          "focus": {
+            "id": "q",
+            "role": "searchbox",
+            "name": "Search products"
+          },
+          "status": "1 result for pen."
+        },
+        {
+          "step": "tab-add",
+          "focus": {
+            "id": "add-pen",
+            "role": "button",
+            "name": "Add pen"
+          },
+          "status": "1 result for pen."
+        },
+        {
+          "step": "open-cart",
+          "focus": {
+            "id": "close",
+            "role": "button",
+            "name": "Close cart"
+          },
+          "status": "Pen added."
+        },
+        {
+          "step": "escape",
+          "focus": {
+            "id": "cart",
+            "role": "button",
+            "name": "Cart"
+          },
+          "status": "Pen added."
+        },
+        {
+          "step": "tab-after-1",
+          "focus": {
+            "id": "place",
+            "role": "button",
+            "name": ""
+          },
+          "status": "Pen added."
+        }
+      ]
+    },
+    "focus": {
+      "elapsedMs": 435,
+      "trace": [
+        {
+          "step": "load",
+          "focus": {
+            "id": "body",
+            "role": "document",
+            "name": ""
+          },
+          "status": ""
+        },
+        {
+          "step": "tab-search",
+          "focus": {
+            "id": "q",
+            "role": "searchbox",
+            "name": "Search products"
+          },
+          "status": ""
+        },
+        {
+          "step": "type-pen",
+          "focus": {
+            "id": "q",
+            "role": "searchbox",
+            "name": "Search products"
+          },
+          "status": ""
+        },
+        {
+          "step": "search",
+          "focus": {
+            "id": "q",
+            "role": "searchbox",
+            "name": "Search products"
+          },
+          "status": "1 result for pen."
+        },
+        {
+          "step": "tab-add",
+          "focus": {
+            "id": "add-pen",
+            "role": "button",
+            "name": "Add pen"
+          },
+          "status": "1 result for pen."
+        },
+        {
+          "step": "open-cart",
+          "focus": {
+            "id": "close",
+            "role": "button",
+            "name": "Close cart"
+          },
+          "status": "Pen added."
+        },
+        {
+          "step": "escape",
+          "focus": {
+            "id": "body",
+            "role": "document",
+            "name": ""
+          },
+          "status": "Pen added."
+        },
+        {
+          "step": "tab-after-1",
+          "focus": {
+            "id": "cart",
+            "role": "button",
+            "name": "Cart"
+          },
+          "status": "Pen added."
+        },
+        {
+          "step": "tab-after-2",
+          "focus": {
+            "id": "place",
+            "role": "button",
+            "name": "Place demo order."
+          },
+          "status": "Pen added."
+        }
+      ]
+    },
+    "loop": {
+      "elapsedMs": 439,
+      "reachedCheckout": false,
+      "trace": [
+        {
+          "step": "load",
+          "focus": {
+            "id": "body",
+            "role": "document",
+            "name": ""
+          },
+          "status": ""
+        },
+        {
+          "step": "tab-search",
+          "focus": {
+            "id": "q",
+            "role": "searchbox",
+            "name": "Search products"
+          },
+          "status": ""
+        },
+        {
+          "step": "type-pen",
+          "focus": {
+            "id": "q",
+            "role": "searchbox",
+            "name": "Search products"
+          },
+          "status": ""
+        },
+        {
+          "step": "search",
+          "focus": {
+            "id": "q",
+            "role": "searchbox",
+            "name": "Search products"
+          },
+          "status": "1 result for pen."
+        },
+        {
+          "step": "tab-add",
+          "focus": {
+            "id": "add-pen",
+            "role": "button",
+            "name": "Add pen"
+          },
+          "status": "1 result for pen."
+        },
+        {
+          "step": "open-cart",
+          "focus": {
+            "id": "close",
+            "role": "button",
+            "name": "Close cart"
+          },
+          "status": "Pen added."
+        },
+        {
+          "step": "escape",
+          "focus": {
+            "id": "cart",
+            "role": "button",
+            "name": "Cart"
+          },
+          "status": "Pen added."
+        },
+        {
+          "step": "tab-after-1",
+          "focus": {
+            "id": "trap-a",
+            "role": "button",
+            "name": "Offer A"
+          },
+          "status": "Pen added."
+        },
+        {
+          "step": "tab-after-2",
+          "focus": {
+            "id": "trap-b",
+            "role": "button",
+            "name": "Offer B"
+          },
+          "status": "Pen added."
+        },
+        {
+          "step": "tab-after-3",
+          "focus": {
+            "id": "trap-a",
+            "role": "button",
+            "name": "Offer A"
+          },
+          "status": "Pen added."
+        },
+        {
+          "step": "tab-after-4",
+          "focus": {
+            "id": "trap-b",
+            "role": "button",
+            "name": "Offer B"
+          },
+          "status": "Pen added."
+        },
+        {
+          "step": "tab-after-5",
+          "focus": {
+            "id": "trap-a",
+            "role": "button",
+            "name": "Offer A"
+          },
+          "status": "Pen added."
+        },
+        {
+          "step": "tab-after-6",
+          "focus": {
+            "id": "trap-b",
+            "role": "button",
+            "name": "Offer B"
+          },
+          "status": "Pen added."
+        },
+        {
+          "step": "tab-after-7",
+          "focus": {
+            "id": "trap-a",
+            "role": "button",
+            "name": "Offer A"
+          },
+          "status": "Pen added."
+        },
+        {
+          "step": "tab-after-8",
+          "focus": {
+            "id": "trap-b",
+            "role": "button",
+            "name": "Offer B"
+          },
+          "status": "Pen added."
+        }
+      ]
+    }
+  }
+}

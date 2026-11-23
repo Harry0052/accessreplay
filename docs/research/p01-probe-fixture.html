@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Shared fixture shop</title>
+  <style>
+    body { font-family: sans-serif; margin: 1rem; }
+    button, input { font: inherit; padding: 0.4rem 0.6rem; }
+    .place-wrap { position: relative; display: inline-block; margin-top: 1rem; }
+    #place { min-width: 12rem; min-height: 2.2rem; }
+    .visual-label {
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+      pointer-events: none;
+    }
+    dialog { padding: 1rem; }
+  </style>
+</head>
+<body>
+  <h1>Fixture shop</h1>
+  <form id="search-form">
+    <label>Search products <input id="q" type="search" name="q"></label>
+  </form>
+  <p id="status" role="status"></p>
+  <ul id="results"></ul>
+  <button id="cart" type="button">Cart</button>
+  <div class="place-wrap">
+    <button id="place" type="button">Place demo order.</button>
+  </div>
+  <dialog id="cart-dialog" aria-label="Cart">
+    <p id="cart-copy">1 pen in the cart.</p>
+    <button id="close" type="button">Close cart</button>
+  </dialog>
+  <script>
+    const build = new URLSearchParams(location.search).get('build') || 'control';
+    const place = document.getElementById('place');
+    if (build === 'name') {
+      place.textContent = '';
+      const span = document.createElement('span');
+      span.className = 'visual-label';
+      span.setAttribute('aria-hidden', 'true');
+      span.textContent = 'Place demo order.';
+      place.parentElement.appendChild(span);
+    }
+    const q = document.getElementById('q');
+    const status = document.getElementById('status');
+    const results = document.getElementById('results');
+    document.getElementById('search-form').addEventListener('submit', (event) => {
+      event.preventDefault();
+      results.innerHTML = '';
+      const item = document.createElement('li');
+      const add = document.createElement('button');
+      add.id = 'add-pen';
+      add.type = 'button';
+      add.textContent = 'Add pen';
+      add.addEventListener('click', () => {
+        status.textContent = 'Pen added.';
+        document.getElementById('cart-dialog').showModal();
+        document.getElementById('close').focus();
+      });
+      item.appendChild(add);
+      results.appendChild(item);
+      status.textContent = '1 result for ' + q.value + '.';
+    });
+    document.getElementById('cart').addEventListener('click', () => {
+      document.getElementById('cart-dialog').showModal();
+      document.getElementById('close').focus();
+    });
+    document.getElementById('cart-dialog').addEventListener('close', () => {});
+    document.getElementById('close').addEventListener('click', () => {
+      document.getElementById('cart-dialog').close();
+      restore();
+    });
+    document.getElementById('cart-dialog').addEventListener('cancel', (event) => {
+      event.preventDefault();
+      document.getElementById('cart-dialog').close();
+      restore();
+    });
+    function restore() {
+      if (build === 'focus') {
+        const active = document.activeElement;
+        if (active && typeof active.blur === 'function') active.blur();
+      } else {
+        document.getElementById('cart').focus();
+      }
+    }
+    if (build === 'loop') {
+      const trapA = document.createElement('button');
+      trapA.id = 'trap-a';
+      trapA.type = 'button';
+      trapA.textContent = 'Offer A';
+      const trapB = document.createElement('button');
+      trapB.id = 'trap-b';
+      trapB.type = 'button';
+      trapB.textContent = 'Offer B';
+      const trap = (event) => {
+        if (event.key !== 'Tab') return;
+        event.preventDefault();
+        (document.activeElement === trapA ? trapB : trapA).focus();
+      };
+      trapA.addEventListener('keydown', trap);
+      trapB.addEventListener('keydown', trap);
+      document.body.insertBefore(trapB, document.querySelector('.place-wrap'));
+      document.body.insertBefore(trapA, trapB);
+    }
+  </script>
+</body>
+</html>
