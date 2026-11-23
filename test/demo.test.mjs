@@ -18,8 +18,15 @@ function run(args) {
 
 test('demo writes the html export and names the first divergences', async () => {
   const out = mkdtempSync(path.join(tmpdir(), 'accessreplay-demo-'));
+  const started = Date.now();
   const result = run(['demo', '--out', out]);
+  const elapsedMs = Date.now() - started;
   assert.equal(result.status, 0, result.stderr);
+  assert.ok(elapsedMs < 90_000, `demo took ${elapsedMs} ms, budget is 90000 ms`);
+  const fresh = mkdtempSync(path.join(tmpdir(), 'accessreplay-demo-'));
+  const again = run(['demo', '--out', fresh]);
+  assert.equal(again.status, 0, again.stderr);
+  assert.equal(again.stdout, result.stdout);
   const summary = JSON.parse(result.stdout);
   assert.equal(summary.ok, true);
   assert.equal(summary.manual.state, 'unreviewed');

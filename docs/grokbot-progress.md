@@ -51,6 +51,20 @@
 - **Open issues:** The checked-in manual sheet has empty reader, OS, and version fields, so every row stays unreviewed. That is the shipped state.
 - **Next phase:** P05
 
+## P05 — Verify correctness, security, and performance
+
+- **Phase and status:** P05 PASS
+- **Files changed:** `docs/validation.md`, `test/security.test.mjs`, `test/demo.test.mjs`, `src/serve.mjs`, `package.json` (`check` script)
+- **Commands and results:**
+  - `npm audit --omit=dev`: 0 vulnerabilities.
+  - `npm run check`: `node --check` passed for the CLI, `src`, and `test`.
+  - `node cli.mjs demo --out /tmp/accessreplay-budget`: exit 0 in 10.689 seconds. Control passed. Focus mutant failed at `escape-cart` (expected `#add-pen` "Add pen", observed `#body`). Name mutant failed at `reach-checkout` (expected `Place demo order.`, observed empty). Tab loop failed at `reach-checkout` (`tab_limit`, last focus `#trap-a`). Timeout and unsupported stayed distinct from `evaluated_regression`. Redirect was `wrong_origin` for `https://example.com`.
+  - `npm test`: 18 passed, 0 failed, about 42.6 seconds. The demo test repeated the run in a second directory and required the stdout summaries to match, and it fails a run at or above 90 seconds.
+  - Path tests: encoded `..` is HTTP 403. A normalized escape does not return `package.json`. Report writes reject a build id that leaves the output directory.
+- **Artifact paths:** `docs/validation.md`, `/tmp/accessreplay-budget/summary.html` (local run, not committed)
+- **Open issues:** The manual screen-reader gate is unreviewed on purpose. Only Linux x86_64 and Chromium were measured.
+- **Next phase:** P06
+
 ## Status index
 
 | Phase | Status |
@@ -59,6 +73,6 @@
 | P02 | PASS |
 | P03 | PASS |
 | P04 | PASS |
-| P05 | not started |
+| P05 | PASS |
 | P06 | not started |
 | P07 | not started |

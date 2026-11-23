@@ -17,7 +17,12 @@ export function startShopServer(rootDir) {
         response.writeHead(405).end();
         return;
       }
-      const url = new URL(request.url, 'http://127.0.0.1');
+      const rawUrl = request.url || '';
+      if (rawUrl.includes('\0') || /(^|\/)\.\.(\/|$)|%2e%2e/i.test(rawUrl)) {
+        response.writeHead(403).end('forbidden');
+        return;
+      }
+      const url = new URL(rawUrl, 'http://127.0.0.1');
       let pathname = decodeURIComponent(url.pathname);
       if (pathname.includes('\0') || pathname.split('/').includes('..')) {
         response.writeHead(403).end('forbidden');
