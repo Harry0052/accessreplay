@@ -65,6 +65,18 @@
 - **Open issues:** The manual screen-reader gate is unreviewed on purpose. Only Linux x86_64 and Chromium were measured.
 - **Next phase:** P06
 
+## P06 — Prepare a reproducible open-source release
+
+- **Phase and status:** P06 PASS
+- **Files changed:** `README.md`, `CHANGELOG.md`, `CONTRIBUTING.md`, `SECURITY.md`, `NOTICE.md`, `.github/workflows/ci.yml`, `docs/grokbot-progress.md`
+- **Commands and results:**
+  - Clean copy at `/tmp/clean-ar` (no `node_modules`, no `.git`): `npm ci`, `npx playwright install chromium`, `npm run check`, `npm test` (18 passed), `node cli.mjs demo`. Exit 0. Summary `ok: true`, manual state `unreviewed`, and every build matched `fixtures/oracle/expected-outcomes.json`.
+  - `npm audit --omit=dev` from P05 remained 0 vulnerabilities. No tracked private keys or large binaries. Fixture terms are in `fixtures/manifest.json`. Dependency notices are in `NOTICE.md`.
+  - GitHub Actions workflow `ci` uses pinned actions: checkout `3d3c42e5aac5ba805825da76410c181273ba90b1` (v7.0.1), setup-node `949feb2413d6458794dcd2491c4babbbce0c15c1` (v7.1.0), upload-artifact `cf430e030ddbb5b0abf93d22962f4752f3646cd9` (v7.0.2). Permissions are `contents: read` plus `actions: write` for the report upload. No secrets.
+- **Artifact paths:** `README.md`, `.github/workflows/ci.yml`, `/tmp/clean-ar/reports/demo/summary.html`
+- **Open issues:** Hosted CI is verified in P07. The release is the git tree, not an npm tarball.
+- **Next phase:** P07
+
 ## Status index
 
 | Phase | Status |
@@ -74,5 +86,5 @@
 | P03 | PASS |
 | P04 | PASS |
 | P05 | PASS |
-| P06 | not started |
+| P06 | PASS |
 | P07 | not started |
